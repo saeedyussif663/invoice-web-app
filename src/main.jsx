@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import Signup from "./components/Signup";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Homepage</div>,
+    element: <Link to="/signup">Signup</Link>,
   },
   {
     path: "/signup",
