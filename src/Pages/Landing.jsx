@@ -2,14 +2,18 @@ import logo from "../assets/inloo_logo.svg";
 import dashboard from "../assets/Dashboard.png";
 import create_invoice from "../assets/create_invoice.png";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import WaitlistModal from "../components/WaitlistModal";
+import Footer from "../components/Footer";
 
 export default function LandingPage() {
-  const [email, setEmail] = useState("");
+  const [isModalShowing, setIsModalShowing] = useState(false);
 
   return (
     <section>
+      {isModalShowing && (
+        <WaitlistModal setIsModalShowing={setIsModalShowing} />
+      )}
       <article className="md:h-screen w-screen flex flex-col items-center pt-4">
         {/* inloo logo */}
         <div>
@@ -31,12 +35,12 @@ export default function LandingPage() {
             streamlined invoicing!
           </p>
 
-          <a
-            href="#waitlist"
+          <button
             className="mt-6 outline-none bg-gradient-to-r rounded-md text-white w-48 from-[#004BDC] to-[#003DB2] py-3"
+            onClick={() => setIsModalShowing(true)}
           >
             Join the Witlist <FaArrowRightLong className="inline ml-2" />
-          </a>
+          </button>
         </div>
       </article>
 
@@ -89,42 +93,17 @@ export default function LandingPage() {
           No wait! Join
           <br /> the waitlist
         </h3>
-        <div className="mt-16 relative">
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            placeholder="Enter your email address"
-            className="w-[20rem] py-3 outline-none border border-[#939393] pl-3 text-lg focus:border-[#2B73FF]"
-          />
-          <button className="absolute cursor-pointer right-2 rounded-md py-1 px-2 top-3 text-white bg-gradient-to-r from-[#004BDC] to-[#003DB2]">
+        <div className="mt-8 flex">
+          <button
+            className="cursor-pointer mt-2 rounded-md py-2 px-4 text-white bg-gradient-to-r from-[#004BDC] to-[#003DB2]"
+            onClick={() => setIsModalShowing(true)}
+          >
             Join now
           </button>
         </div>
       </section>
 
-      <footer className="border-t border-[#000D3C] h-[10rem] flex justify-between items-center px-3 md:px-8">
-        <div className="">
-          <img src={logo} alt="inloo" className="w-[50px]" />
-        </div>
-
-        <div className="socials">
-          <ul className="flex gap-5 flex-wrap md:w-auto  md:gap-6 list-disc text-sm">
-            <li className="list-none">
-              <Link to="#">LinkedIn</Link>
-            </li>
-            <Link to="#">
-              <li>X (Twitter)</li>
-            </Link>
-            <Link to="#">
-              <li>Instagram</li>
-            </Link>
-            <Link to="/">
-              <li>Facebook</li>
-            </Link>
-          </ul>
-        </div>
-      </footer>
+      <Footer />
     </section>
   );
 }

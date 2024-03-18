@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.shadow {
+  box-shadow: 1px 12px 1px 20px rgba(128, 163, 232, 0.24);
+}
+
+@layer components {
+  .labelStyles {
+    @apply block text-sm mb-1;
+  }
+
+  .sup {
+    @apply ml-[2px] text-red-500;
+  }
+
+  .input {
+    @apply w-full outline-none border border-[#ABABAB] rounded-md h-[35px] text-[#9F9F9F] px-2 placeholder:text-sm;
+  }
+}
