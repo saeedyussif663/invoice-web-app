@@ -1,15 +1,41 @@
+import { useState } from "react";
 import logo from "../assets/inloo_logo.svg";
+import toast from "react-hot-toast";
 
 export default function WaitlistModal({ setIsModalShowing }) {
-  function handleSubmit(e) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const data = {
+    const userDetails = {
       name: formData.get("name"),
       email: formData.get("email"),
-      number: formData.get("number"),
+      phone: formData.get("number"),
     };
-    console.log(data);
+    const options = {
+      method: "POST",
+      body: JSON.stringify(userDetails),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    setIsLoading(true);
+    const res = await fetch(
+      "https://invoicer-production-298f.up.railway.app/waitlist/join",
+      options
+    );
+    const data = await res.json();
+    if (res.status === 201) {
+      toast.success(data);
+    } else if (res.status === 400) {
+      toast.error(data.detail);
+    } else {
+      toast.error(data.detail[0].msg);
+    }
+    setIsLoading(false);
+
     e.target.reset();
   }
 
@@ -75,8 +101,11 @@ export default function WaitlistModal({ setIsModalShowing }) {
           </div>
 
           <div className="flex justify-center font-raleway">
-            <button className="cursor-pointer mt-2 rounded-md py-2 px-4 text-white bg-gradient-to-r from-[#004BDC] to-[#003DB2]">
-              Join now
+            <button
+              className="cursor-pointer mt-2 rounded-md py-2 px-4 text-white bg-gradient-to-r from-[#004BDC] to-[#003DB2]"
+              type="submit"
+            >
+              {isLoading ? "Joining..." : "Join now"}
             </button>
           </div>
         </form>

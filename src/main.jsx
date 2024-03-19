@@ -2,10 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Signup from "./components/Signup";
-import Signin from "./components/Signin";
 import LandingPage from "./Pages/Landing";
-
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +21,23 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Toaster
+      position="top-right"
+      toastOptions={{
+        success: {
+          style: {
+            background: "green",
+            color: "white",
+          },
+        },
+        error: {
+          style: {
+            background: "red",
+            color: "white",
+          },
+        },
+      }}
+    />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
