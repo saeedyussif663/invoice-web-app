@@ -4,6 +4,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./Pages/Landing";
 import { Toaster } from "react-hot-toast";
+import Signin from "./Pages/Signin";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,10 +15,10 @@ const router = createBrowserRouter([
   //   path: "/signup",
   //   element: <Signup />,
   // },
-  // {
-  //   path: "/signin",
-  //   element: <Signin />,
-  // },
+  {
+    path: "/auth/signin",
+    element: <Signin />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
