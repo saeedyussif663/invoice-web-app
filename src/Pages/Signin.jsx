@@ -21,8 +21,8 @@ export default function Signin() {
   }
 
   return (
-    <section>
-      <section className="w-[95%] md:w-[550px] mx-auto rounded-lg mt-8 border border-[#737373] bg-white flex items-center justify-center shadow-xl">
+    <section className="w-screen h-screen flex items-center">
+      <section className="w-[95%] h-[550px] md:w-[550px] mx-auto rounded-lg mt-8 border border-[#737373] bg-white flex items-center justify-center shadow-xl">
         <article className="mx-auto w-[70%] mt-6 flex flex-col items-center mb-8">
           {/* logo && text */}
           <div>
@@ -58,8 +58,8 @@ export default function Signin() {
                 <label htmlFor="username/email" className="text-sm">
                   Username/email<sup className="sup">*</sup>
                 </label>
-                <span className="text-red-400 text-[12px]">
-                  password incorrect
+                <span className="text-[#FF1A1A] text-[12px]">
+                  email/username incorrect
                 </span>
               </div>
 
@@ -79,7 +79,7 @@ export default function Signin() {
                 <label htmlFor="password">
                   Password<sup className="sup">*</sup>
                 </label>
-                <span className="text-red-400 text-[12px]">
+                <span className="text-[#FF1A1A] text-[12px]">
                   password incorrect
                 </span>
               </div>

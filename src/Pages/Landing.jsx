@@ -22,7 +22,7 @@ export default function LandingPage() {
         </div>
 
         {/* details */}
-        <div className="bg-[#F5F8FF] font-raleway text-center mt-4 md:mt-8 px-1 md:px-10 pt-4 pb-8 w-[90%] md:max-w-[48rem] rounded-md flex flex-col items-center">
+        <div className="bg-[#F5F8FF] font-raleway text-center mt-4 md:mt-8 px-1 md:px-10 pt-4 pb-8 w-[90%] md:max-w-[80%] rounded-md flex flex-col items-center">
           <h1 className="font-bold text-[28px] md:text-6xl">
             Create <span className="text-[#2B73FF]">Digital Invoices </span>
             <br />
