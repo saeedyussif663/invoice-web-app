@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "../assets/inloo_logo.svg";
 import toast from "react-hot-toast";
+import { Form } from "react-router-dom";
 
 export default function WaitlistModal({ setIsModalShowing }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +14,11 @@ export default function WaitlistModal({ setIsModalShowing }) {
       email: formData.get("email"),
       phone: formData.get("number"),
     };
+
+    if (userDetails.phone.length !== 10) {
+      toast.error("should have exactly 10 digits");
+      return;
+    }
     const options = {
       method: "POST",
       body: JSON.stringify(userDetails),
@@ -29,6 +35,7 @@ export default function WaitlistModal({ setIsModalShowing }) {
     const data = await res.json();
     if (res.status === 201) {
       toast.success(data);
+      setIsModalShowing(false);
     } else if (res.status === 400) {
       toast.error(data.detail);
     } else {
@@ -54,7 +61,7 @@ export default function WaitlistModal({ setIsModalShowing }) {
           </h2>
         </div>
 
-        <form
+        <Form
           className="font-archivo my-5 flex flex-col gap-3"
           onSubmit={handleSubmit}
         >
@@ -91,11 +98,12 @@ export default function WaitlistModal({ setIsModalShowing }) {
               Phone Number<sup className="sup">*</sup>
             </label>
             <input
-              type="text"
+              type="number"
               id="number"
               required
               name="number"
-              placeholder="233550327838"
+              placeholder="0550327838"
+              step="0.01"
               className="input"
             />
           </div>
@@ -108,7 +116,7 @@ export default function WaitlistModal({ setIsModalShowing }) {
               {isLoading ? "Joining..." : "Join now"}
             </button>
           </div>
-        </form>
+        </Form>
       </div>
     </article>
   );

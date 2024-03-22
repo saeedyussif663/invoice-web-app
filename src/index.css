@@ -19,3 +19,11 @@
     @apply w-full outline-none border border-[#ABABAB] rounded-md h-[35px] text-[#9F9F9F] px-2 placeholder:text-sm;
   }
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
