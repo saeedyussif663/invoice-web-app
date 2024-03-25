@@ -1,12 +1,13 @@
 import { useState } from "react";
-import logo from "../assets/inloo_logo.svg";
-import toast from "react-hot-toast";
+import logo from "../../assets/inloo_logo.svg";
 import { Form } from "react-router-dom";
+import addWaitlist from "../../lib/addWaitlist";
 
 export default function WaitlistModal({ setIsModalShowing }) {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
+    setIsLoading(true);
     e.preventDefault();
     const formData = new FormData(e.target);
     const userDetails = {
@@ -15,35 +16,8 @@ export default function WaitlistModal({ setIsModalShowing }) {
       phone: formData.get("number"),
     };
 
-    if (userDetails.phone.length !== 10) {
-      toast.error("should have exactly 10 digits");
-      return;
-    }
-    const options = {
-      method: "POST",
-      body: JSON.stringify(userDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    setIsLoading(true);
-    const res = await fetch(
-      "https://invoicer-production-298f.up.railway.app/waitlist/join",
-      options
-    );
-    const data = await res.json();
-    if (res.status === 201) {
-      toast.success(data);
-      setIsModalShowing(false);
-    } else if (res.status === 400) {
-      toast.error(data.detail);
-    } else {
-      toast.error(data.detail[0].msg);
-    }
+    await addWaitlist(userDetails, setIsModalShowing);
     setIsLoading(false);
-
-    e.target.reset();
   }
 
   return (

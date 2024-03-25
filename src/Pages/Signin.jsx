@@ -1,8 +1,9 @@
-import google from "../assets/google_symbol.svg.png";
 import { Form, Link } from "react-router-dom";
 import { useState } from "react";
 import FormWrapper from "../components/FormWrapper";
 import LogoText from "../components/LogoText";
+import OAuth from "../components/OAuth";
+import Border from "../components/Border";
 
 export default function Signin() {
   const [emailError, setEmailError] = useState(true);
@@ -27,17 +28,10 @@ export default function Signin() {
       <LogoText Text="Sign in" />
 
       {/* Google Oauth */}
-      <div className="mt-4 cursor-pointer flex justify-center items-center gap-2 py-1 border border-[#8B8B8B] w-full text-lg font-raleway font-semibold">
-        <img src={google} alt="google_icon" />
-        <span>Log in with google</span>
-      </div>
+      <OAuth Type="Sign in" />
 
       {/* border */}
-      <div className=" my-5 w-full flex items-center justify-between font-raleway font-medium">
-        <div className="h-px w-[45%] bg-black"></div>
-        <p>or</p>
-        <div className="h-px w-[45%] bg-black"></div>
-      </div>
+      <Border />
 
       {/* form */}
       <Form

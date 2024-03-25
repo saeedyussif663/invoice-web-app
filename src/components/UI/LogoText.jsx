@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/inloo_logo.svg";
+import logo from "../../assets/inloo_logo.svg";
 
 export default function LogoText({ Text }) {
   return (

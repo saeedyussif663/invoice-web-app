@@ -3,9 +3,9 @@ import dashboard from "../assets/Dashboard.png";
 import create_invoice from "../assets/create_invoice.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useState } from "react";
-import WaitlistModal from "../components/WaitlistModal";
-import Footer from "../components/Footer";
-import Features from "../components/Features";
+import WaitlistModal from "../components/landing/WaitlistModal";
+import Footer from "../components/landing/Footer";
+import Features from "../components/landing/Features";
 
 export default function LandingPage() {
   const [isModalShowing, setIsModalShowing] = useState(false);
