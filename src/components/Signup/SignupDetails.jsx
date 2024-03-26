@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import Border from "../UI/Border";
 import FormWrapper from "../UI/FormWrapper";
 import LogoText from "../UI/LogoText";
-import OAuth from "../UI/OAuth";
 import { toast } from "react-hot-toast";
 
 export default function SignupDetails({
@@ -26,10 +24,6 @@ export default function SignupDetails({
   return (
     <FormWrapper>
       <LogoText Text="Sign up" />
-
-      <OAuth Type="Sign up" />
-
-      <Border />
 
       <form className="w-full flex flex-col gap-3 font-archivo">
         <div className="flex gap-1 flex-col">

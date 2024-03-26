@@ -3,11 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
+      fontFamily: { 
         raleway: "Raleway, ui-serif",
-        archivo: "Archivo, sans-serif;",
+        archivo: "Archivo, sans-serif",
       },
     },
   },
   plugins: [],
 };
+  

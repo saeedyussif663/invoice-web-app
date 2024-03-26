@@ -8,8 +8,8 @@ export default function Footer() {
       </div>
 
       <div className="socials">
-        <ul className="flex gap-5 flex-wrap md:w-auto md:gap-6 list-disc text-sm">
-          <li className="list-none">
+        <ul className="grid grid-cols-2 gap-y-2 gap-x-6 md:flex md:flex-wrap md:w-auto md:gap-6 list-disc text-sm">
+          <li className="md:list-none">
             <a href="#">LinkedIn</a>
           </li>
           <a href="#">

@@ -7,6 +7,7 @@ import createUser from "../../lib/createUser";
 import FormWrapper from "../UI/FormWrapper";
 import LogoText from "../UI/LogoText";
 import { Form } from "react-router-dom";
+import checkPasswordValidity from "../../lib/checkPasswordValidity";
 
 export default function SignupPassword({
   setPage,
@@ -17,51 +18,15 @@ export default function SignupPassword({
   businessName,
 }) {
   const [isPasswordShowing, setIsPasswordShowing] = useState(false);
-  const [isMoreThanEightChars, setIsMoreThanEightChars] = useState(false);
-  const [includesUppercase, setIncludesUppercase] = useState(false);
-  const [includesLowercase, setIncludesLowercase] = useState(false);
-  const [includesDigit, setIncludesDigit] = useState(false);
-  const [includesSpecialCharcter, setIncludesSpecialCharacter] =
-    useState(false);
   const [loading, setIsLoading] = useState(false);
 
-  function checkPasswordValidity() {
-    console.log("checking");
-    // more than 8 characters
-    if (password.length >= 8) {
-      setIsMoreThanEightChars(true);
-    } else {
-      setIsMoreThanEightChars(false);
-    }
-
-    //   includes at least one uppercase
-    if (/[A-Z]/.test(password)) {
-      setIncludesUppercase(true);
-    } else {
-      setIncludesUppercase(false);
-    }
-
-    //   check at least one lowercase
-    if (/[a-z]/.test(password)) {
-      setIncludesLowercase(true);
-    } else {
-      setIncludesLowercase(false);
-    }
-
-    //   includes digit
-    if (/[0-9]/.test(password)) {
-      setIncludesDigit(true);
-    } else {
-      setIncludesDigit(false);
-    }
-
-    //   includes special character
-    if (/[^a-zA-Z0-9]/.test(password)) {
-      setIncludesSpecialCharacter(true);
-    } else {
-      setIncludesSpecialCharacter(false);
-    }
-  }
+  const {
+    includesSpecialCharcter,
+    includesDigit,
+    includesLowercase,
+    includesUppercase,
+    isMoreThanEightChars,
+  } = checkPasswordValidity(password);
 
   useEffect(() => {
     checkPasswordValidity();
