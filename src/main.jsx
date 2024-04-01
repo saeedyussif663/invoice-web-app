@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./Pages/Landing";
 import { Toaster } from "react-hot-toast";
 // import Signin from "./Pages/Signin";
-import Signup from "./Pages/Signup";
+// import Signup from "./Pages/Signup";
+// import Dashboard from "./Pages/Dashboard";
 // import ResetPassword from "./Pages/ResetPassword";
 // import ResetPasswordMessage from "./components/ResetPasswordMessage";
 // import ResetPasswordForm from "./Pages/ResetPasswordForm";
@@ -16,13 +17,17 @@ const router = createBrowserRouter([
     element: <LandingPage />,
   },
   // {
+  //   path: "/dashboard",
+  //   element: <Dashboard />,
+  // },
+  // {
   //   path: "/auth/signin",
   //   element: <Signin />,
   // },
-  {
-    path: "/auth/signup",
-    element: <Signup />,
-  },
+  // {
+  //   path: "/auth/signup",
+  //   element: <Signup />,
+  // },
   // {
   //   path: "/forgot_password",
   //   element: <ResetPassword />,
