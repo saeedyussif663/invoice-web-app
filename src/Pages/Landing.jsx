@@ -56,7 +56,7 @@ export default function LandingPage() {
           </h2>
           <img
             src={create_invoice}
-            className="mt-6 h-[30rem] w-[96%] md:w-auto"
+            className="mt-6 h-[80%]  w-[80%] md:h-[30rem] md:w-auto"
           />
         </div>
         <div className="pt-10 flex flex-col items-center">
@@ -65,7 +65,7 @@ export default function LandingPage() {
           </h2>
           <img
             src={dashboard}
-            className="mt-6 h-[25rem] md:h-[30rem] w-[94%] md:w-auto"
+            className="mt-6 h-[80%] w-[80%] md:h-[30rem]  md:w-auto"
           />
         </div>
       </section>
